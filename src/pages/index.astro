@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug"
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">🚀 Impulsando la Innovación Digital y Tecnológica de CLM 🚀</div>
+    <div class="text-5xl font-bold">Asociación BlockChain</div>
+    <div class="text-3xl py-3 font-bold">de Castilla la Mancha</div>
+    <div class="py-2">
+      <text class="text-lg">
+        La Asociación Blockchain de Castilla-La Mancha es una organización sin ánimo de lucro dedicada a promover y desarrollar la tecnología blockchain en la región. Nuestra misión es fomentar la adopción de esta tecnología revolucionaria a través de diversas iniciativas y actividades. Nos enfocamos en tres pilares fundamentales:
+        Educación y Capacitación, Colaboración y Networking e Innovación y Apoyo a Startups.
+      </text>
+    </div>
+      <div class="py-2">
+      <text class="text-lg">
+     Únete a nosotros y sé parte del futuro tecnológico de Castilla-La Mancha. Juntos, podemos transformar industrias, mejorar procesos y crear un impacto positivo en la sociedad. 🌐
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="https://t.me/+4QeI7xwu-0Q0ZTg0" target="_blank"> ✈️ Conecta con la comunidad!</a>
+      <a href="https://forms.gle/TnNNrcznBzidkKdX6" target="_blank" class="btn btn-outline ml-5">
+        Hazte Socio
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">📅 Próximos eventos</div>
+  </div>
+
+  <HorizontalCard
+  title="Reunión fundacional de la Asociación"
+  img="/reunion.webp"
+  desc="A mediados de septiembre de 2024 (fecha por definir) se creara la primera reunión oficial de la Asociación donde se aprobara la primara acta fundacional."
+  url="#"
+  badge="On-line"
+/>
+<div class="divider my-0"></div>
+<HorizontalCard
+  title="Presentación Asociación"
+  img="/evento.webp"
+  desc="A principios de noviembre de 2024 se presentará la asociación a instituciones y prensa con un evento donde se hablara de los propositos y objetivos de esta nueva asociación."
+  url="#"
+  badge="Por definir"
+/>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Últimas entradas del Blog</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>

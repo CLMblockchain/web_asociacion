@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title = "Eventos" sideBarActiveItemID="eventos">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Próximos eventos</div>
+  </div>
+
+  <HorizontalCard
+    title="Reunión fundacional de la Asociación"
+    img="/reunion.webp"
+    desc="A mediados de septiembre de 2024 (fecha por definir) se creara la primera reunión oficial de la Asociación donde se aprobara la primara acta fundacional."
+    url="#"
+    badge="On-line"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Presentación Asociación"
+    img="/evento.webp"
+    desc="A principios de noviembre de 2024 se presentará la asociación a instituciones y prensa con un evento donde se hablara de los propositos y objetivos de esta nueva asociación."
+    url="#"
+    badge="Por definir"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Eventos Pasasdos</div>
+  </div>
+
+  <HorizontalCard
+    title="Seguna Kickoff (19/08/2024)"
+    img="/reunion_agosto.webp"
+    desc="Buenas comunidad! Segunda Reunión General completada 😎 Ya tenemos los equipos de trabajo creados y asignados, ahora toca currar para sacar los objetivos del roadmap que nos hemos puesto a corto plazo 🚀 echadle un vistazo de como va cambiando el tablero de organización 🙌🏻 También estrenamos Discord para una comunicación más estructurada y organización de los eventos como el de ayer por ese nuevo canal 🎯 os animamos a todos a participar en la próxima reu dentro de 2-3 semanas, son bienvenidas todas las ideas y hay muchas formas de colaborar, os esperamos! "
+    url="#"
+    badge="Finalizada"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Primera Kickoff completada 😎 (23/07/2024)"
+    img="/reunion_julio.webp"
+    desc="La semana pasada tuvimos nuestra primera reunión como asociación donde estuvimos presentándonos y viendo las primeras acciones que acometer, como formalizarnos oficialmente como Asociación 💪🏻 Os dejamos por aquí el board que seguimos por encima para que le echéis un vistazo, por supuesto sentiros libres de participar y aportar cualquier idea o colaboración que se os ocurra 🙌🏻 Os esperamos por nuestro Telegram!"
+    url="#"
+    badge="Community Call"
+  />
+  <!-- <div class="divider my-0"></div>
+   <HorizontalCard
+    title="Demo Project 5"
+    img="/post_img.webp"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+  /> -->
+</BaseLayout>
